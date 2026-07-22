@@ -1,0 +1,31 @@
+{
+  "name": "npmtest",
+  "version": "0.0.1",
+  "description": "hello package.json",
+  "author": "wijaeseong",
+  "type": "commonjs",
+  "main": "index.js",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "patch-package"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "morgan": "^1.11.0",
+    "patch-package": "^8.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "overrides": {
+    "express-session": {
+      "cookie": "0.7.1"
+    }
+  },
+  "volta": {
+    "node": "24.18.0"
+  }
+}
