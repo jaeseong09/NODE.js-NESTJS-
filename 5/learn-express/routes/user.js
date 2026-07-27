@@ -1,0 +1,17 @@
+const express = require("express");
+
+const router = express.Router();
+
+// GET /user라우터
+router.get("/", (req, res) => {
+  res.send("Hello, User");
+});
+router.get("/:id", (req, res) => {
+  console.log("얘만 실행됩니다");
+  res.send("Hello, User");
+});
+router.get("/like", (req, res) => {
+  console.log("전혀 실행되지 않습니다");
+});
+
+module.exports = router;
