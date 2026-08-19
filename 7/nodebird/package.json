@@ -1,0 +1,31 @@
+{
+  "name": "nodebird",
+  "version": "0.0.1",
+  "description": "익스프레스로 만드는 SNS 서비스",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --env-file=.env app"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "author": "wijaeseong",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "chokidar": "^3.6.0",
+    "cookie-parser": "^1.4.7",
+    "drizzle-orm": "^0.45.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "morgan": "^1.11.0",
+    "multer": "^2.2.0",
+    "mysql2": "^3.23.2",
+    "nunjucks": "^3.2.4",
+    "passport": "^0.7.0",
+    "passport-kakao": "^1.0.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.10",
+    "nodemon": "^3.1.14"
+  }
+}
