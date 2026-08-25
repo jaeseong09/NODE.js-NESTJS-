@@ -12,7 +12,7 @@ module.exports = () => {
 
   passport.deserializeUser(async (id, done) => {
     try {
-      const { passport, ...rest } = getTableColumns(users);
+      const { password, ...rest } = getTableColumns(users);
       const user = await db
         .select({
           ...rest,

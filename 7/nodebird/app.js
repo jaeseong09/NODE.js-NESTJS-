@@ -7,6 +7,7 @@ const nunjucks = require("nunjucks");
 const passport = require("passport");
 
 const pageRouter = require("./router/page");
+const authRouter = require("./router/auth");
 const passportConfig = require("./passport");
 
 const app = express();
@@ -36,8 +37,15 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  res.locals.followerCount = 0;
+  res.locals.followingCount = 0;
+  next();
+});
 
 app.use("/", pageRouter);
+app.use("/auth", authRouter);
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 없습니다`);

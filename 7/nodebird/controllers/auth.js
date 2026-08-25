@@ -5,19 +5,19 @@ const { eq } = require("drizzle-orm");
 const { users } = require("../drizzle/schema");
 
 exports.join = async (req, res, next) => {
-  const { id, nick, password } = req.body;
+  const { email, nick, password } = req.body;
   try {
     const exUser = await db
       .select()
       .from(users)
-      .where(eq(users.id, id))
+      .where(eq(users.id, email))
       .limit(1);
     if (exUser.length) {
       return res.redirect("/join?error=exist");
     }
     const hash = await bcrypt.hash(password, 12);
     await db.insert(users).values({
-      id,
+      id: email,
       nick,
       password: hash,
     });
